@@ -1,0 +1,20 @@
+{
+  "name": "crawl2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "base64-to-image": "^1.0.2",
+    "n-readlines": "^1.0.1",
+    "node-fetch": "^3.3.2",
+    "node-html-parser": "^6.1.10",
+    "node-tesseract-ocr": "^2.2.1",
+    "text-from-image": "^1.1.1"
+  }
+}
