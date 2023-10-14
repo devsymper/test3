@@ -36,13 +36,17 @@ function getDataAndSave(content) {
 
 async function run() {
     let pagePerNode = Math.floor(totalPage / nodeNum)
-    let start = Number(fs.readFileSync("count.txt")) + 1
+    let savedStart = Number(fs.readFileSync("count.txt"));
+    let start = savedStart == 0 ? (pagePerNode * (nodeIndex - 1)) : savedStart
     if (start == 1 && nodeIndex != 1) {
         start = pagePerNode * nodeIndex
     }
-    let end = pagePerNode * (nodeIndex + 1)
+    let end = pagePerNode * nodeIndex
 
     for (let index = start; index < end; index++) {
+        if (index <= 0) {
+            continue
+        }
         let link = `https://www.tratencongty.com/?page=${index}`
         let res = await fetch(link)
         let text = await res.text()
