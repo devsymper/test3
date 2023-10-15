@@ -49,7 +49,8 @@ export async function getAllDetail() {
         
         temp = jumbotron.innerText.replaceAll('\n', ' ');
         temp = temp.split(/Mã số thuế: |Địa chỉ: |Đại diện pháp luật: |Ngày cấp giấy phép: |Ngày hoạt động: |Điện thoại trụ sở: |Trạng thái: /ig)
-        info.dien_thoai = await getTelephoneNumber(jumbotron.querySelector('img').getAttribute('src'))
+        let img = jumbotron.querySelector('img')
+        info.dien_thoai = img ? await getTelephoneNumber(img.getAttribute('src')) : ''
 
         info.tinh_trang = temp[7].trim()
         info.ngay_hoat_dong = getStartDate(temp[4].trim())
